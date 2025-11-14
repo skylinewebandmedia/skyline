@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyline Web & Media</title>
+
+    <!-- ALL CSS HERE -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0f0f16;
+            color: white;
+        }
+
+        /* HEADER */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(120deg, #1d1f33, #0f0f16);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px 60px;
+        }
+
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo span {
+            color: #4f7dfd;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* HERO CONTENT */
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background: #4f7dfd;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #2f5cf5;
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        /* SERVICES */
+        .services-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            padding: 25px;
+            width: 280px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ABOUT */
+        .about-text {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.7;
+            opacity: 0.85;
+        }
+
+        /* ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s forwards;
+        }
+
+        .delay {
+            animation-delay: 0.3s;
+        }
+
+        .delay2 {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.7s;
+        }
+
+        .show {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="hero">
+        <nav>
+            <h1 class="logo">Skyline <span>Web & Media</span></h1>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero-content">
+            <h2 class="fade-in">Creative Digital Solutions</h2>
+            <p class="fade-in delay">Custom web design, graphics, media, and digital content for your brand.</p>
+            <a href="#contact" class="btn fade-in delay2">Work With Us</a>
+        </div>
+    </header>
+
+    <section id="services" class="section">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-container">
+
+            <div class="service-card slide-up">
+                <h3>Website Development</h3>
+                <p>Modern, responsive websites built for speed, style, and impact.</p>
+            </div>
+
+            <div class="service-card slide-up">
+                <h3>Custom Digital Work</h3>
+                <p>Banners, thumbnails, digital assets, visuals, and unique brand materials.</p>
+            </div>
+
+            <div class="service-card slide-up">
+                <h3>Media & Design</h3>
+                <p>Logos, social media posts, video edits, and eye-catching designs.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="section-title">About Us</h2>
+        <p class="about-text">
+            Skyline Web & Media is a student-driven digital agency creating modern, clean, 
+            and powerful visuals and websites. We focus on creativity, quality, and fast delivery.
+        </p>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <h2 class="section-title">Contact</h2>
+        <p>Want a project? Let’s work together!</p>
+        <a href="mailto:your-email@skylinewebandmedia.com" class="btn">Send Email</a>
+    </section>
+
+    <!-- ALL JAVASCRIPT HERE -->
+    <script>
+        const elements = document.querySelectorAll(".slide-up");
+
+        function revealOnScroll() {
+            const windowHeight = window.innerHeight;
+
+            elements.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+
+                if (top < windowHeight - 50) {
+                    el.classList.add("show");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", revealOnScroll);
+        revealOnScroll();
+    </script>
+
+
+</body>
+</html>
